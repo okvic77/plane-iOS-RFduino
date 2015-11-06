@@ -13,6 +13,12 @@
 		007646D31BED2523001B6DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007646D11BED2523001B6DA4 /* Main.storyboard */; };
 		007646D51BED2523001B6DA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007646D41BED2523001B6DA4 /* Assets.xcassets */; };
 		007646D81BED2523001B6DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007646D61BED2523001B6DA4 /* LaunchScreen.storyboard */; };
+		007646E41BED2A78001B6DA4 /* ListaBLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 007646E31BED2A78001B6DA4 /* ListaBLE.m */; };
+		007646E71BED2D7A001B6DA4 /* VistaBLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 007646E61BED2D7A001B6DA4 /* VistaBLE.m */; };
+		007646E91BED2E34001B6DA4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007646E81BED2E34001B6DA4 /* CoreMotion.framework */; };
+		007646EB1BED312E001B6DA4 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007646EA1BED312E001B6DA4 /* CoreBluetooth.framework */; };
+		007646F21BED353E001B6DA4 /* RFduinoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 007646F11BED353E001B6DA4 /* RFduinoManager.m */; };
+		007646F51BED3572001B6DA4 /* RFduino.m in Sources */ = {isa = PBXBuildFile; fileRef = 007646F41BED3572001B6DA4 /* RFduino.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,18 @@
 		007646D41BED2523001B6DA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		007646D71BED2523001B6DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		007646D91BED2523001B6DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		007646E21BED2A78001B6DA4 /* ListaBLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaBLE.h; sourceTree = "<group>"; };
+		007646E31BED2A78001B6DA4 /* ListaBLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaBLE.m; sourceTree = "<group>"; };
+		007646E51BED2D7A001B6DA4 /* VistaBLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VistaBLE.h; sourceTree = "<group>"; };
+		007646E61BED2D7A001B6DA4 /* VistaBLE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VistaBLE.m; sourceTree = "<group>"; };
+		007646E81BED2E34001B6DA4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		007646EA1BED312E001B6DA4 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		007646EF1BED3459001B6DA4 /* RFduinoManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFduinoManagerDelegate.h; sourceTree = "<group>"; };
+		007646F01BED353E001B6DA4 /* RFduinoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFduinoManager.h; sourceTree = "<group>"; };
+		007646F11BED353E001B6DA4 /* RFduinoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFduinoManager.m; sourceTree = "<group>"; };
+		007646F31BED3572001B6DA4 /* RFduino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFduino.h; sourceTree = "<group>"; };
+		007646F41BED3572001B6DA4 /* RFduino.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFduino.m; sourceTree = "<group>"; };
+		007646F61BED35B1001B6DA4 /* RFduinoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFduinoDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007646EB1BED312E001B6DA4 /* CoreBluetooth.framework in Frameworks */,
+				007646E91BED2E34001B6DA4 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +62,7 @@
 		007646BC1BED2523001B6DA4 = {
 			isa = PBXGroup;
 			children = (
+				007646EC1BED33C9001B6DA4 /* Libraries */,
 				007646C71BED2523001B6DA4 /* Plane */,
 				007646C61BED2523001B6DA4 /* Products */,
 			);
@@ -58,15 +79,18 @@
 		007646C71BED2523001B6DA4 /* Plane */ = {
 			isa = PBXGroup;
 			children = (
+				007646EE1BED3439001B6DA4 /* RFduino */,
+				007646ED1BED33DC001B6DA4 /* Others */,
 				007646CB1BED2523001B6DA4 /* AppDelegate.h */,
 				007646CC1BED2523001B6DA4 /* AppDelegate.m */,
 				007646CE1BED2523001B6DA4 /* ViewController.h */,
 				007646CF1BED2523001B6DA4 /* ViewController.m */,
 				007646D11BED2523001B6DA4 /* Main.storyboard */,
-				007646D41BED2523001B6DA4 /* Assets.xcassets */,
-				007646D61BED2523001B6DA4 /* LaunchScreen.storyboard */,
-				007646D91BED2523001B6DA4 /* Info.plist */,
 				007646C81BED2523001B6DA4 /* Supporting Files */,
+				007646E21BED2A78001B6DA4 /* ListaBLE.h */,
+				007646E31BED2A78001B6DA4 /* ListaBLE.m */,
+				007646E51BED2D7A001B6DA4 /* VistaBLE.h */,
+				007646E61BED2D7A001B6DA4 /* VistaBLE.m */,
 			);
 			path = Plane;
 			sourceTree = "<group>";
@@ -77,6 +101,38 @@
 				007646C91BED2523001B6DA4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		007646EC1BED33C9001B6DA4 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				007646EA1BED312E001B6DA4 /* CoreBluetooth.framework */,
+				007646E81BED2E34001B6DA4 /* CoreMotion.framework */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		007646ED1BED33DC001B6DA4 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				007646D41BED2523001B6DA4 /* Assets.xcassets */,
+				007646D61BED2523001B6DA4 /* LaunchScreen.storyboard */,
+				007646D91BED2523001B6DA4 /* Info.plist */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		007646EE1BED3439001B6DA4 /* RFduino */ = {
+			isa = PBXGroup;
+			children = (
+				007646EF1BED3459001B6DA4 /* RFduinoManagerDelegate.h */,
+				007646F01BED353E001B6DA4 /* RFduinoManager.h */,
+				007646F11BED353E001B6DA4 /* RFduinoManager.m */,
+				007646F31BED3572001B6DA4 /* RFduino.h */,
+				007646F41BED3572001B6DA4 /* RFduino.m */,
+				007646F61BED35B1001B6DA4 /* RFduinoDelegate.h */,
+			);
+			name = RFduino;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				007646D01BED2523001B6DA4 /* ViewController.m in Sources */,
+				007646F51BED3572001B6DA4 /* RFduino.m in Sources */,
+				007646F21BED353E001B6DA4 /* RFduinoManager.m in Sources */,
+				007646E71BED2D7A001B6DA4 /* VistaBLE.m in Sources */,
+				007646E41BED2A78001B6DA4 /* ListaBLE.m in Sources */,
 				007646CD1BED2523001B6DA4 /* AppDelegate.m in Sources */,
 				007646CA1BED2523001B6DA4 /* main.m in Sources */,
 			);
