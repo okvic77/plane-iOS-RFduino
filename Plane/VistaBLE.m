@@ -11,6 +11,7 @@
 @interface VistaBLE () {
     int motorA;
     int motorB;
+    bool isOn;
 }
 
 @end
@@ -25,6 +26,7 @@
 @synthesize rfduino;
 
 - (void)viewDidLoad {
+    isOn = false;
     [super viewDidLoad];
     [rfduino setDelegate:self];
     motionManager = [[CMMotionManager alloc] init];
@@ -43,20 +45,44 @@
     //float ratex = motionManager.gyroData.rotationRate.x;
     //float ratey = motionManager.gyroData.rotationRate.y;
     //float ratez = motionManager.gyroData.rotationRate.z;
-    float indicador = motionManager.accelerometerData.acceleration.x;
     
     
-    if (indicador < 0) { // Izquierda
-        motorA = 255 - roundf(indicador * 255) * - 1;
-        motorB = 255;
-    } else {
-        motorA = 255;
-        motorB = 255 - roundf(indicador * 255);
+    if (isOn) {
+        float indicador = motionManager.accelerometerData.acceleration.x;
+        if (indicador < 0) { // Izquierda
+            motorA = 255 - roundf(indicador * 255) * - 1;
+            motorB = 255;
+        } else {
+            motorA = 255;
+            motorB = 255 - roundf(indicador * 255);
+        }
+        
+        
+        //NSData * datos = [NSData dataWithBytes:<#(nullable const void *)#> length:<#(NSUInteger)#>]
+        float atenuacion = 1 - fabs(motionManager.accelerometerData.acceleration.z);
+        
+        motorA *= atenuacion;
+        motorB *= atenuacion;
+        
+    }else{
+        motorA = 0;
+        motorB = 0;
     }
-    //[rfduino send:NSDa]
-    //float ratey = motionManager.accelerometerData.acceleration.y;
-    //float ratez = motionManager.accelerometerData.acceleration.z;
-    [debug setText:[NSString stringWithFormat:@"%i\n%i\n%f", motorA, motorB, indicador]];
+    motorA = abs(motorA);
+    motorB = abs(motorB);
+    [debug setText:[NSString stringWithFormat:@"%i\n%i", motorA, motorB]];
+   
+    
+}
+
+- (IBAction)toogleButtonIO:(id)sender {
+    if (isOn) {
+        isOn = false;
+        [io setTitle:@"Prender" forState:UIControlStateNormal];
+    }else{
+        isOn = true;
+        [io setTitle:@"Apagar" forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +95,7 @@
     [rfduino disconnect];
     NSLog(@"Bye");
 }
+
 
 /*
 #pragma mark - Navigation

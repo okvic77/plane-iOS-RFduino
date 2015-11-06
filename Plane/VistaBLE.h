@@ -16,8 +16,10 @@
     NSTimer *timer;
     
     IBOutlet UITextView * debug;
+    IBOutlet UIButton * io;
 }
 
+- (IBAction)toogleButtonIO:(id)sender;
 @property(strong, nonatomic) RFduino *rfduino;
 
 @end
