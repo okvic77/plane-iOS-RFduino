@@ -70,6 +70,10 @@
     }
     motorA = abs(motorA);
     motorB = abs(motorB);
+    
+    uint8_t bytes[] = { (uint8_t)motorA, (uint8_t)motorB };
+    NSData* data = [NSData dataWithBytes:(void*)&bytes length:2];
+    [rfduino send:data];
     [debug setText:[NSString stringWithFormat:@"%i\n%i", motorA, motorB]];
    
     
