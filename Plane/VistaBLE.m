@@ -7,11 +7,12 @@
 //
 
 #import "VistaBLE.h"
-
+#define LIMIT 0.3
 @interface VistaBLE () {
     int motorA;
     int motorB;
     bool isOn;
+    int servo;
 }
 
 @end
@@ -31,7 +32,7 @@
     [rfduino setDelegate:self];
     motionManager = [[CMMotionManager alloc] init];
     [motionManager startAccelerometerUpdates];
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.2
                                              target:self
                                            selector:@selector(doGyroUpdate)
                                            userInfo:nil 
@@ -42,19 +43,23 @@
 }
 
 -(void)doGyroUpdate {
+    
     //float ratex = motionManager.gyroData.rotationRate.x;
     //float ratey = motionManager.gyroData.rotationRate.y;
     //float ratez = motionManager.gyroData.rotationRate.z;
     
+    servo = 0;
     
     if (isOn) {
         float indicador = motionManager.accelerometerData.acceleration.x;
         if (indicador < 0) { // Izquierda
             motorA = 255 - roundf(indicador * 255) * - 1;
             motorB = 255;
+            if (indicador < -LIMIT) servo = 1;
         } else {
             motorA = 255;
             motorB = 255 - roundf(indicador * 255);
+            if (indicador > LIMIT) servo = 2;
         }
         
         
@@ -71,8 +76,8 @@
     motorA = abs(motorA);
     motorB = abs(motorB);
     
-    uint8_t bytes[] = { (uint8_t)motorA, (uint8_t)motorB };
-    NSData* data = [NSData dataWithBytes:(void*)&bytes length:2];
+    uint8_t bytes[] = { (uint8_t)motorA, (uint8_t)motorB, (uint8_t)servo };
+    NSData* data = [NSData dataWithBytes:(void*)&bytes length:3];
     [rfduino send:data];
     [debug setText:[NSString stringWithFormat:@"%i\n%i", motorA, motorB]];
    
